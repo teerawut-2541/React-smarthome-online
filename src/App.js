@@ -1,16 +1,35 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-import Login from './containers/account/login'
-import Register from './containers/account/register'
-import Home from './containers/home/home'
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Loadable from "react-loadable";
+
+import "./App.css";
+
+const Login = Loadable({
+  loader: () => import('./containers/account/login'),
+  loading: () => null
+});
+
+const Register = Loadable({
+  loader: () => import('./containers/account/register'),
+  loading: () => null
+});
+
+const Index = Loadable({
+  loader: () => import('./containers/index'),
+  loading: () => null
+});
+
 
 function App() {
   return (
     <div className="container">
+      <Switch>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route exact path="/" component={Home} />
+        <Route exact path="/dashboard" component={Index} />
+        <Route exact path="/dashboard/home" component={Index} />
+        <Route exact path="/dashboard/bedroom" component={Index} />
+      </Switch>
     </div>
   );
 }

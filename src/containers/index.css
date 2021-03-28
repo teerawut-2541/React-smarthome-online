@@ -1,0 +1,15 @@
+.grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-areas: 'leftmenu main';
+}
+
+.grid-left-menu {
+    grid-area: 'leftmenu';
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.grid-main {
+    grid-area: 'main';
+}
