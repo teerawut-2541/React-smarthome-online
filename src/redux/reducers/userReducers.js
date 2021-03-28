@@ -1,4 +1,4 @@
-import {USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FALL} from '../constants/userConstants'
+import {USER_LOGIN_SUCCESS, USER_LOGIN_FALL} from '../constants/userConstants'
 
 function userLoginReducer(state={},action) {
     switch(action.type){

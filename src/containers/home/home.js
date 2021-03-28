@@ -7,6 +7,7 @@ import Humidity from "../../components/home/data-sensor/humidity";
 import Pm25 from "../../components/home/data-sensor/pm25";
 import Pm10 from "../../components/home/data-sensor/pm10";
 import ChartLine from "../../components/chart/chartLine";
+import ChartApex from '../../components/chart/chartApex'
 function Home() {
   return (
     <div className="home-content">
@@ -38,7 +39,9 @@ function Home() {
         <div className="home-grid-chart">
           <ChartLine />
         </div>
-        <div className="home-grid-chart"></div>
+        <div className="home-grid-chart">
+          <ChartApex/>
+        </div>
       </div>
     </div>
   );
