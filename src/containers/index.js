@@ -10,7 +10,7 @@ const Home = Loadable({
 });
 
 const Bedroom = Loadable({
-  loader: () => import('./bedroom/bedroom.js'),
+  loader: () => import('./room/room.js'),
   loading: () => null
 });
 
@@ -22,8 +22,8 @@ function index() {
       </div>
       <div className="grid-main">
         <Switch>
-          <Route exact path="/dashboard/home" component={Home} />
-          <Route exact path="/dashboard/bedroom" component={Bedroom} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/bedroom" component={Bedroom} />
         </Switch>
       </div>
     </div>

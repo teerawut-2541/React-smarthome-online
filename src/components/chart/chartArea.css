@@ -1,0 +1,12 @@
+.chart-area{
+    box-sizing:border-box;
+
+    height: 370px;
+    border-radius: 20px;
+    color: #193B68;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgb(0, 0, 0, 0.1);
+    padding: 20px;
+    /* display: flex; */
+}

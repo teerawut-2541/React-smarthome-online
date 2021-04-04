@@ -6,8 +6,8 @@ import Temperature from "../../components/home/data-sensor/temperature";
 import Humidity from "../../components/home/data-sensor/humidity";
 import Pm25 from "../../components/home/data-sensor/pm25";
 import Pm10 from "../../components/home/data-sensor/pm10";
-import ChartLine from "../../components/chart/chartLine";
-import ChartApex from '../../components/chart/chartApex'
+import ChartTemp from '../../components/home/chart/chartTemp'
+import ChartHumidity from '../../components/home/chart/chartHumidity'
 function Home() {
   return (
     <div className="home-content">
@@ -18,7 +18,8 @@ function Home() {
         <div className="home-grid-covid">
           <Covid />
         </div>
-        <div className="box3"></div>
+        <div className="box3">
+        </div>
       </div>
 
       <div className="home-content-grid2">
@@ -37,10 +38,10 @@ function Home() {
       </div>
       <div className="home-content-grid3">
         <div className="home-grid-chart">
-          <ChartLine />
+        <ChartTemp/>
         </div>
         <div className="home-grid-chart">
-          <ChartApex/>
+          <ChartHumidity/>
         </div>
       </div>
     </div>

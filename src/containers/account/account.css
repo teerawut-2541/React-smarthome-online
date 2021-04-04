@@ -69,14 +69,13 @@ input {
     cursor: pointer;
     text-transform: uppercase;
     box-shadow: rgba(20, 112, 255, 0.25) 0px 10px 20px, rgba(20, 112, 255, 0.22) 0px 5px 5px;
-    font-family: 'Quicksand', sans-serif;
     font-weight: 500;
-    margin:20px 0;
+    margin: 20px 0;
     letter-spacing: 1px;
 }
 
 .btn-account:hover {
-    background: #1470FF;
+    background: #193B68;
 }
 
 .form-account-text {
@@ -84,13 +83,18 @@ input {
     color: #555;
 }
 
-.btn-account-link{
+.btn-account-link {
     cursor: pointer;
     color: #1470FF;
     text-decoration: underline;
 }
-.form-account-error{
-    font-size: 12px;
+
+.btn-account-link:hover {
+    color: #193B68;
+}
+
+.form-account-error {
+    font-size: 10px;
     color: rgb(238, 102, 102);
     margin: 0;
     padding: 0;

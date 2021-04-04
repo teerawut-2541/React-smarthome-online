@@ -1,0 +1,11 @@
+.box-switch{
+    border-radius: 20px;
+    color: #193B68;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 5px 20px rgb(0, 0, 0, 0.1);
+    height: 100px;
+    display: flex;
+    align-items: center;
+}

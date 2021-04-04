@@ -1,15 +1,13 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../functions/schema";
-import {useSelector,useDispatch} from 'react-redux'
-import {login} from '../../redux/action/userAction'
 
 import "./account.css";
 import bg from "../../assets/bg-login.jpg";
 
-function Login(props) {
+function Login() {
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
     resolver: yupResolver(loginSchema),
@@ -18,26 +16,12 @@ function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const userLogin = useSelector(state => state.userLogin)
-  const {userInfo, error} = userLogin
-  const dispatch = useDispatch()
 
   const submitHandler = (e) => {
      e.preventDefault();
     console.log(email);
     console.log(password);
-    dispatch(login(email,password))
   };
-  
-  useEffect(() => {
-    if(userInfo)
-        props.history.push("/")
-  }, [userInfo])
-
-
-
-
-
 
   return (
     <div className="page-account">

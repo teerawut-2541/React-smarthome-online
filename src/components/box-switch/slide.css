@@ -1,0 +1,20 @@
+.box-switch-slide{
+    width: 50%;
+    height: 80%;
+    margin: 20px 0;
+    box-shadow: 0 5px 20px rgb(0, 0, 0, 0.1);
+    border-radius: 10%;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+.switch-slide-title{
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+.switch-slide{
+    list-style-type: none;
+}

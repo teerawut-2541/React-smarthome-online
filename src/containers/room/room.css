@@ -1,0 +1,7 @@
+.bedroom-content-grid{ 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.bedroom-content-switch{
+    margin: 15px 10px;
+}
