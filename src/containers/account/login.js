@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../functions/schema";
-
+import {useSelector,useDispatch} from 'react-redux'
+import {loginAction} from '../../redux/action/userAction'
 import "./account.css";
 import bg from "../../assets/bg-login.jpg";
 
@@ -18,10 +19,19 @@ function Login() {
 
 
   const submitHandler = (e) => {
-     e.preventDefault();
-    console.log(email);
-    console.log(password);
+    dispatch(loginAction(email,password))
   };
+
+  const userLogin = useSelector(state => state.userLogin)
+  const {status, error} = userLogin
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if(status){
+      window.location.replace("/");
+    }
+  }, [status])
+
 
   return (
     <div className="page-account">

@@ -22,7 +22,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="home-content-grid2">
+      <div className="home-content-grid2"> 
         <div className="home-grid-data">
           <Temperature />
         </div>

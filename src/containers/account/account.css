@@ -56,7 +56,11 @@ input {
     letter-spacing: 1px;
     color: #193B68;
     margin: 10px 0;
+    background: none;
+    font-family: 'Quicksand', sans-serif;  
+
 }
+
 
 .btn-account {
     background: #1470FF;

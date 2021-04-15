@@ -46,7 +46,12 @@
     justify-content: center;
     display: flex;
 }
-
+.menu-icon-img{
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .menu-text{
     font-size: 13px;
     color: #193B68;
