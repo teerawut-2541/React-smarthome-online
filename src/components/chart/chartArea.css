@@ -1,12 +1,15 @@
-.chart-area{
+/* .chart-area{
     box-sizing:border-box;
-
-    height: 370px;
+    height: 400px;
     border-radius: 20px;
     color: #193B68;
     background-color: #fff;
     overflow: hidden;
     box-shadow: 0 5px 20px rgb(0, 0, 0, 0.1);
     padding: 20px;
-    /* display: flex; */
+} */
+.chart-area-title{
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 15px;
 }

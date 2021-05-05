@@ -5,6 +5,7 @@ import "./index.css";
 import Loadable from "react-loadable";
 import { useSelector, useDispatch } from "react-redux";
 import { checkTokenAction } from "../redux/action/checkTokenAction";
+import { useHistory } from "react-router-dom";
 
 const Home = Loadable({
   loader: () => import("./home/home.js"),
@@ -17,8 +18,7 @@ const Room = Loadable({
 });
 
 function Index() {
-  // const checkToken = useSelector((state) => state.checkToken);
-  // const { status, userInfo ,loading} = checkToken;
+  let history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Index() {
     if (token) {
       dispatch(checkTokenAction());
     } else {
-      window.location.replace("/login");
+      history.push("/home");
     }
   }, []);
 

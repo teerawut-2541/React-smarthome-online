@@ -8,7 +8,7 @@ function loginReducer(state={},action) {
             return{error:action.payload}
         default:
             return state
-    }  
+    }     
 }
 
 function registerReducer(state={},action) {

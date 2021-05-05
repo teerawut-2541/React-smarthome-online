@@ -44,6 +44,7 @@
 h2 {
     letter-spacing: 2px;
     color: #193B68;
+    text-transform:uppercase;
 }
 
 input {
@@ -106,6 +107,28 @@ input {
     justify-content: flex-end;
 }
 
+.login-faceid{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn-login-faceid{
+    background: #1470FF;
+    width: 200px;
+    height: 35px;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 29px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: rgba(20, 112, 255, 0.25) 0px 10px 20px, rgba(20, 112, 255, 0.22) 0px 5px 5px;
+    font-weight: 500;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
 
 @media(max-width:992px) {
     .box-account-grid {

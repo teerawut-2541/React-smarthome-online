@@ -1,13 +1,12 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../functions/schema";
-import {useSelector,useDispatch} from 'react-redux'
-import {registerAction} from '../../redux/action/userAction'
-
+import { useSelector, useDispatch } from "react-redux";
+import { registerAction } from "../../redux/action/userAction";
 import bg from "../../assets/bg-register.jpg";
-import './account.css'
+import "./account.css";
 
 function Register() {
   const { register, handleSubmit, errors } = useForm({
@@ -20,19 +19,19 @@ function Register() {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
 
-  const userRegister = useSelector(state => state.userRegister)
-  const {status, message,error} = userRegister
-  const dispatch = useDispatch()
+  const userRegister = useSelector((state) => state.userRegister);
+  const { status, message, error } = userRegister;
+  const dispatch = useDispatch();
 
   const submitHandler=()=>{
     dispatch(registerAction(username,email,password))
   } 
 
   useEffect(() => {
-    if(status){
+    if (status) {
       window.location.replace("/login");
     }
-  }, [status])
+  }, [status]);
 
   return (
     <div className="page-account">
@@ -42,7 +41,6 @@ function Register() {
             <form
               className="form-account"
               onSubmit={handleSubmit(submitHandler)}
-              autocomplete="off"
             >
               <h2>Create Account</h2>
               <span>{message}</span>
@@ -52,7 +50,6 @@ function Register() {
                   name="username"
                   ref={register}
                   onChange={(e) => setUsername(e.target.value)}
-
                 />
                 <p className="form-account-error">{errors.username?.message}</p>
               </li>
@@ -67,6 +64,7 @@ function Register() {
               </li>
               <li>
                 <input
+                  type="password"
                   placeholder="Password"
                   name="password"
                   ref={register}
@@ -76,6 +74,7 @@ function Register() {
               </li>
               <li>
                 <input
+                  type="password"
                   placeholder="Confirm password"
                   name="rePassword"
                   ref={register}
@@ -89,7 +88,6 @@ function Register() {
                 Sign Up
               </button>
               <span className="form-account-text">
-                {" "}
                 already have an account ?{" "}
                 <NavLink to="/login" className="btn-account-link">
                   Sign In

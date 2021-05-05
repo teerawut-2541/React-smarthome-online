@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import Chart from "react-apexcharts";
 import "./chartArea.css";
 function ChartArea() {
-  const chartDataSensor = useSelector((state) => state.chartDataSensor);
-  const { data_sensor } = chartDataSensor;
+  const chartDataSensor2 = useSelector((state) => state.chartDataSensor2);
+  const { data_sensor } = chartDataSensor2;
 
-  const chartDataOneSensor = useSelector((state) => state.chartDataOneSensor);
-  const { data_one_sensor } = chartDataOneSensor;
+  const chartDataOneSensor2 = useSelector((state) => state.chartDataOneSensor2);
+  const { data_one_sensor } = chartDataOneSensor2;
 
   const [dataSeries, setDataSeries] = useState([]);
   const [timeOption, setTimeOption] = useState([]);
@@ -42,13 +42,28 @@ function ChartArea() {
       name: "xxxx",
       data: dataSeries,
     },
-    
   ];
 
   const options = {
     chart: {
       height: 350,
       type: "area",
+      zoom: {
+        enabled: true,
+        type: 'x',  
+        autoScaleYaxis: false,  
+        zoomedArea: {
+          fill: {
+            color: '#90CAF9',
+            opacity: 0.4
+          },
+          stroke: {
+            color: '#0D47A1',
+            opacity: 0.4,
+            width: 1
+          }
+        }
+    }
     },
     dataLabels: {
       enabled: false,
@@ -71,7 +86,9 @@ function ChartArea() {
     ""
   ) : (
     <div className="chart-area">
-      <span className='chart-area-title'>{data_sensor[0].sensor.sensor_name}</span>
+      <span className="chart-area-title">
+        {data_sensor[0].sensor.sensor_name}
+      </span>
       <Chart options={options} series={series} type="area" height={350} />
     </div>
   );

@@ -1,20 +1,21 @@
 import React,{ useEffect} from "react";
-import {useSelector,useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {dataRoomAction, deviceRoomAction} from '../../redux/action/roomAction'
 import "./room.css";
 import BoxSwitch from "../../components/box-switch/box-switch";
 import BoxData from '../../components/box-data/box'
 import { useParams } from "react-router-dom";
-export default function Room() {
-  let { id } = useParams();
 
-  const dispatch = useDispatch()
-  useEffect(() => {
-    if(id !== undefined){
-      dispatch(dataRoomAction(id))
-      dispatch(deviceRoomAction(id))
-    }
-  }, [id])
+export default function Room() {
+  // let { id } = useParams();
+
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   if(id !== undefined){
+  //     dispatch(dataRoomAction(id))
+  //     dispatch(deviceRoomAction(id))
+  //   }
+  // }, [id])
 
   return (
     <div className="room-content">

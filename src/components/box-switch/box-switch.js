@@ -3,47 +3,48 @@ import { useSelector, useDispatch } from "react-redux";
 import {switchRoomAction, deviceRoomAction, dataRoomAction} from "../../redux/action/roomAction";
 import "./box-switch.css";
 import { useParams } from "react-router-dom";
+import axios from "axios"
 
 function BoxSwitch() {
   let { id } = useParams();
-  // const [checkTest, setCheckTest] = useState(false)
-  const data = useSelector((state) => state.deviceRoom);
-  const { deviceRoom } = data;
+  const [Device, setDevice] = useState(null)
+  const [checkEff, setCheckEff] = useState(false)
+  // const data = useSelector((state) => state.deviceRoom);
+  // const { deviceRoom } = data;
 
   const dispatch = useDispatch();
-
   const handleClick = (device_id, status) => {
-    console.log("status", status);
     const checkStatus = status === "false" ? true : false;
-    console.log("checkStatus", checkStatus);
     dispatch(switchRoomAction(device_id, checkStatus)).then(() => {
-      // setCheckTest(true)
-      dispatch(deviceRoomAction(id));
-      dispatch(dataRoomAction(id))
+      setCheckEff(!checkEff)
     });
   };
 
   const handleChange = (event) => {
-    // event.preventDefault();
-    // console.log(event.target.value);
-    // console.log(event.target.id);
     dispatch(switchRoomAction(event.target.id, event.target.value)).then(() => {
-      dispatch(deviceRoomAction(id));
-      dispatch(dataRoomAction(id))
+      setCheckEff(!checkEff)
     });
   };
 
-  // useEffect(() => {
-  //   dispatch(deviceRoomAction(id));
-  //   dispatch(dataRoomAction(id))
-  //   setCheckTest(false)
+  const getDevice = () =>{
+    axios.get("http://localhost:4000/api/deviceroom", {
+        params: {
+          room_id:id
+        },
+      }).then((result)=>{
+        setDevice(result.data.data)
+      })
+  }
 
-  // }, [checkTest])
+  useEffect(() => {
+    getDevice()
+  }, [checkEff,id])
+
 
   return (
     <div>
-      {deviceRoom !== undefined
-        ? deviceRoom.map((item, key) => {
+      {Device !== null
+        ? Device.map((item, key) => {
             var boolValue = item.status.toLowerCase() === "true" ? true : false;
             return (
               <div className="box-switch" key={key}>
@@ -65,7 +66,7 @@ function BoxSwitch() {
                 <div className="box-switch-slide-icon">
                   <span className="switch-slide-title">
                     {" "}
-                    {item.device_name} : {boolValue ? item.value : 0} Lux
+                    {item.device_name} : {boolValue ? item.value : 0} {item.type}
                   </span>
                   <input
                     disabled={!boolValue}

@@ -1,13 +1,13 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../functions/schema";
-import {useSelector,useDispatch} from 'react-redux'
-import {loginAction} from '../../redux/action/userAction'
+import { useSelector, useDispatch } from "react-redux";
+import { loginAction } from "../../redux/action/userAction";
 import "./account.css";
 import bg from "../../assets/bg-login.jpg";
-
+import Alert from "../../components/alert/alert";
 function Login() {
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
@@ -17,24 +17,23 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
   const submitHandler = (e) => {
-    dispatch(loginAction(email,password))
+    dispatch(loginAction(email, password));
   };
 
-  const userLogin = useSelector(state => state.userLogin)
-  const {status, error} = userLogin
-  const dispatch = useDispatch()
+  const userLogin = useSelector((state) => state.userLogin);
+  const { status, message, error } = userLogin;
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if(status){
+    if (status) {
       window.location.replace("/");
     }
-  }, [status])
-
+  }, [status]);
 
   return (
     <div className="page-account">
+      <Alert message={message} status={status} />
       <div className="box-account">
         <div className="box-account-grid">
           <div className="box-img">
@@ -57,6 +56,7 @@ function Login() {
               </li>
               <li>
                 <input
+                  type="password"
                   placeholder="Password"
                   name="password"
                   ref={register}
@@ -69,7 +69,12 @@ function Login() {
                 Sign In
               </button>
               <span className="form-account-text">
-                {" "}
+                Login with
+                <NavLink to="/login-faceid" className="btn-account-link">
+                  <span> Face Id</span>
+                </NavLink>
+              </span>
+              <span className="form-account-text">
                 Don't have an account ?{" "}
                 <NavLink to="/register" className="btn-account-link">
                   Sign Up

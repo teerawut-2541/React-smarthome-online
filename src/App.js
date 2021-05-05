@@ -10,6 +10,11 @@ const Login = Loadable({
   loading: () => null,
 });
 
+const LoginFaceID = Loadable({
+  loader: () => import("./containers/account/loginFaceId"),
+  loading: () => null,
+});
+
 const Register = Loadable({
   loader: () => import("./containers/account/register"),
   loading: () => null,
@@ -33,6 +38,7 @@ function App() {
     <div className="container">
       <Switch>
         <Route path="/login" component={Login} />
+        <Route path="/login-faceid" component={LoginFaceID} />
         <Route path="/register" component={Register} />
         {token ? (
           <div>

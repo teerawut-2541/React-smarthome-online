@@ -19,7 +19,7 @@ const listRoomAction = (home_id) => async (dispatch) => {
 const dataRoomAction = (room_id) => async (dispatch) => {
     dispatch({type:ROOM_DATA_REQUEST}) 
     try {
-      const { data } = await axios.get("http://localhost:4000/api/dataroom/", {
+      const { data } = await axios.get("http://localhost:4000/api/dataroom", {
         params: {
           room_id:room_id
         },
@@ -40,7 +40,7 @@ const deviceRoomAction = (room_id) => async (dispatch) => {
         },
       });
       dispatch({ type: ROOM_DEVICE_SUCCESS, payload: data.data });
-      console.log('deviceRoomAction',data);
+      // console.log('deviceRoomAction',data);
     } catch (error) {
       dispatch({ type: ROOM_DEVICE_FALL, payload: error.message });
     }
