@@ -132,17 +132,17 @@ display: none;
   color: #193b68;
   font-family: "Quicksand", sans-serif;
 }
-.but-addrom {
+.btn-addroom {
   width: 100%;
 }
-.but-addrom button {
+.btn-addroom button {
   float: right;
   height: 35px;
-  width: 70px;
+  width: 100px;
   border: none;
   padding: 2px;
   margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 29px;
   transition: all 0.5s;
   background-color: #1479ff;
   color: #fff;
@@ -151,7 +151,7 @@ display: none;
   box-shadow: rgba(20, 112, 255, 0.25) 0px 10px 20px,
     rgba(20, 112, 255, 0.22) 0px 5px 5px;
 }
-.but-addrom button:hover {
+.btn-addroom button:hover {
   background-color: #193b68;
 }
 .box-icon-addroom {
@@ -185,4 +185,34 @@ display: none;
 }
 .input-option {
   font-family: "Quicksand", sans-serif;
+}
+
+/* createFaceId */
+.create-faceid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.create-faceid-webcam{
+  display: flex;
+  flex-direction: row;
+}
+.btn-faceid{
+  background: #1470FF;
+  width: 200px;
+  height: 35px;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 29px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: rgba(20, 112, 255, 0.25) 0px 10px 20px, rgba(20, 112, 255, 0.22) 0px 5px 5px;
+  font-weight: 500;
+  margin: 20px 0;
+  letter-spacing: 1px;
+}
+.btn-faceid:hover{
+  background: #193B68;
 }

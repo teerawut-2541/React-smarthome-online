@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { loginAction } from "../../redux/action/userAction";
 import "./account.css";
 import bg from "../../assets/bg-login.jpg";
-import Alert from "../../components/alert/alert";
 function Login() {
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
@@ -33,7 +32,6 @@ function Login() {
 
   return (
     <div className="page-account">
-      <Alert message={message} status={status} />
       <div className="box-account">
         <div className="box-account-grid">
           <div className="box-img">

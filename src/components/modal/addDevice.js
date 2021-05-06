@@ -72,7 +72,7 @@ function AddDevice() {
             })}
           </select>
           <span className="input-romm">{pathIcon}</span>
-          <div className="but-addrom">
+          <div className="btn-addroom">
             <button type="submit">SAVE</button>
           </div>
         </div>

@@ -30,7 +30,7 @@ function CreateFaceId() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (newFile) {
-      dispatch(faceIdAction(newFile, userInfo.user_id));
+      // dispatch(faceIdAction(newFile, userInfo.user_id));
     }
   }, [newFile]);
 
@@ -47,18 +47,19 @@ function CreateFaceId() {
   }, [file]);
 
   return (
-    <div className="addroom-content">
-      <button onClick={()=>capture()}>click</button>
-      <Webcam
-        audio={false}
-        height={500}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-        width={500}
-        videoConstraints={videoConstraints}
-      />
-      {/* แสดงตัวอย่างรูป */}
-      <img src={file} />
+    <div className="create-faceid">
+      <div className="create-faceid-webcam">
+        <Webcam
+          audio={false}
+          height={500}
+          ref={webcamRef}
+          screenshotFormat="image/jpeg"
+          width={500}
+          videoConstraints={videoConstraints}
+        />
+        <img src={file} />
+      </div>
+      <button onClick={() => capture()} className="btn-faceid">take a picture</button>
     </div>
   );
 }

@@ -44,7 +44,7 @@
 h2 {
     letter-spacing: 2px;
     color: #193B68;
-    text-transform:uppercase;
+    text-transform: uppercase;
 }
 
 input {
@@ -58,7 +58,7 @@ input {
     color: #193B68;
     margin: 10px 0;
     background: none;
-    font-family: 'Quicksand', sans-serif;  
+    font-family: 'Quicksand', sans-serif;
 
 }
 
@@ -86,12 +86,14 @@ input {
 .form-account-text {
     font-size: 12px;
     color: #555;
+    margin-bottom: 10px;
 }
 
 .btn-account-link {
     cursor: pointer;
     color: #1470FF;
     text-decoration: underline;
+
 }
 
 .btn-account-link:hover {
@@ -107,14 +109,15 @@ input {
     justify-content: flex-end;
 }
 
-.login-faceid{
+.login-faceid {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.btn-login-faceid{
+
+.btn-login-faceid {
     background: #1470FF;
     width: 200px;
     height: 35px;

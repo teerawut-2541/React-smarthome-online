@@ -42,7 +42,7 @@ function AddUser() {
             className="input-romm"
             ref={register}
           />
-          <div className="but-addrom">
+          <div className="btn-addroom">
             <button>SAVE</button>
           </div>
         </div>
