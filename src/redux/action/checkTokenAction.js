@@ -5,7 +5,7 @@ const checkTokenAction = () => async (dispatch) => {
   let token = JSON.parse(localStorage.getItem("token"));
   dispatch({type: CHECK_TOKEN_REQUEST})
   try {
-    const { data } = await axios.get("http://localhost:4000/api/userInfo", {
+    const { data } = await axios.get("https://smarthome-bu.online/api/userInfo", {
       headers: { token: token },
     });
     dispatch({ type: CHECK_TOKEN_SUCCESS, payload: data });

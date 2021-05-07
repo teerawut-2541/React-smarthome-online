@@ -10,7 +10,7 @@ import {
 
 const loginAction = (email, password) => async (dispatch) => {
   try {
-    const { data } = await axios.post("http://localhost:4000/api/login", {
+    const { data } = await axios.post("https://smarthome-bu.online/api/login", {
       email,
       password,
     });
@@ -38,7 +38,7 @@ const loginFaceIdAction = (file) => async (dispatch) => {
 
 const registerAction = (username, email, password) => async (dispatch) => {
   try {
-    const { data } = await axios.post("http://localhost:4000/api/register", {
+    const { data } = await axios.post("https://smarthome-bu.online/api/register", {
       username,
       email,
       password,

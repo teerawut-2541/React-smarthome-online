@@ -3,7 +3,7 @@ import { CHART_FIND_NAME_SENSOR_SUCCESS, CHART_FIND_NAME_SENSOR_FALL, CHART_DATA
 
 const chartNameSensorAction = (home_id) => async (dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:4000/api/chartNameSensor", {
+    const { data } = await axios.get("https://smarthome-bu.online/api/chartNameSensor", {
       params: {
         home_id:home_id
       },
@@ -19,7 +19,7 @@ const chartDataSensorAction = (selectName) => async (dispatch) => {
   // console.log('selectName',selectName)
   let token = JSON.parse(localStorage.getItem("token"));
   try {
-    const { data } = await axios.get("http://localhost:4000/api/chartDataSensor", {
+    const { data } = await axios.get("https://smarthome-bu.online/api/chartDataSensor", {
       params: {
         sensor_id:selectName !== null ? selectName : 0
       },
@@ -37,7 +37,7 @@ const chartDataSensorOneAction = (selectName) => async (dispatch) => {
   console.log('selectNameOne',selectName)
   let token = JSON.parse(localStorage.getItem("token"));
   try {
-    const { data } = await axios.get("http://localhost:4000/api/chartDataOneSensor", {
+    const { data } = await axios.get("https://smarthome-bu.online/api/chartDataOneSensor", {
       params: {
         sensor_id:selectName
       },
@@ -53,7 +53,7 @@ const chartDataSensorOneAction = (selectName) => async (dispatch) => {
 
 const chartDataSensor2Action = (selectName) => async (dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:4000/api/chartDataSensor2", {
+    const { data } = await axios.get("https://smarthome-bu.online/api/chartDataSensor2", {
       params: {
         sensor_id:selectName
       },
@@ -68,7 +68,7 @@ const chartDataSensor2Action = (selectName) => async (dispatch) => {
 const chartDataSensorOne2Action = (selectName) => async (dispatch) => {
   console.log('selectNameOne',selectName)
   try {
-    const { data } = await axios.get("http://localhost:4000/api/chartDataOneSensor2", {
+    const { data } = await axios.get("https://smarthome-bu.online/api/chartDataOneSensor2", {
       params: {
         sensor_id:selectName
       },

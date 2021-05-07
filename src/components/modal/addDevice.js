@@ -3,7 +3,7 @@ import "./modal.css";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { addDeviceAction } from "../../redux/action/modalAction";
-
+import Alert from "../Alert/Alert";
 function AddDevice() {
   const { register, handleSubmit } = useForm();
 
@@ -38,7 +38,9 @@ function AddDevice() {
   console.log(status,message)
 
   return (
-    <div className="addroom-content">
+   <div className='grid-add'>
+     <Alert statu={status} message={message}/>
+      <div className="addroom-content">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="addroom">
           <div className="title-addroom">
@@ -71,7 +73,9 @@ function AddDevice() {
               );
             })}
           </select>
-          <span className="input-romm">{pathIcon}</span>
+          <div className='box-icons-adds'>
+            <img className='box-icon-romm' src={pathIcon} alt='icon'/>
+          </div>
           <div className="btn-addroom">
             <button type="submit">SAVE</button>
           </div>
@@ -93,6 +97,7 @@ function AddDevice() {
         </div>
       </div>
     </div>
+   </div>
   );
 }
 

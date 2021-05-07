@@ -3,7 +3,7 @@ import "./modal.css";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { addSensorAction } from "../../redux/action/modalAction";
-
+import Alert from "../Alert/Alert";
 function AddSensor() {
   const { register, handleSubmit } = useForm();
 
@@ -40,6 +40,8 @@ function AddSensor() {
   ];
 
   return (
+    <div className='grid-add'>
+    <Alert statu={status} message={message}/>
     <div className="addroom-content">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="addroom">
@@ -94,6 +96,7 @@ function AddSensor() {
             })}
         </div>
       </div>
+    </div>
     </div>
   );
 }

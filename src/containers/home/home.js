@@ -99,14 +99,9 @@ function Home() {
         <div className="home-grid-covid">
           <Covid />
         </div>
-        <div className="box3"></div>
-      </div>
-
-      <div className="home-content-grid2">
-        <div className="home-grid-data">{/* <Temperature /> */}</div>
-        <div className="home-grid-data">{/* <Humidity /> */}</div>
-        <div className="home-grid-data">{/* <Pm25 /> */}</div>
-        <div className="home-grid-data">{/* <Pm10 /> */}</div>
+        <div className="home-grid-weather">
+          <Weather />
+        </div>
       </div>
       <div className="home-content-grid3">
         <div className="home-grid-chart">

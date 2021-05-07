@@ -4,7 +4,7 @@ import { ROOM_LIST_SUCCESS, ROOM_LIST_FALL, ROOM_DATA_REQUEST, ROOM_DEVICE_REQUE
 const listRoomAction = (home_id) => async (dispatch) => {
   // let home = home_id
   try {
-    const { data } = await axios.get("http://localhost:4000/api/listroom", {
+    const { data } = await axios.get("https://smarthome-bu.online/api/listroom", {
       params: {
         home_id:home_id
       },
@@ -19,7 +19,7 @@ const listRoomAction = (home_id) => async (dispatch) => {
 const dataRoomAction = (room_id) => async (dispatch) => {
     dispatch({type:ROOM_DATA_REQUEST}) 
     try {
-      const { data } = await axios.get("http://localhost:4000/api/dataroom", {
+      const { data } = await axios.get("https://smarthome-bu.online/api/dataroom", {
         params: {
           room_id:room_id
         },
@@ -34,7 +34,7 @@ const dataRoomAction = (room_id) => async (dispatch) => {
 const deviceRoomAction = (room_id) => async (dispatch) => {
   dispatch({type:ROOM_DEVICE_REQUEST}) 
     try {
-      const { data } = await axios.get("http://localhost:4000/api/deviceroom", {
+      const { data } = await axios.get("https://smarthome-bu.online/api/deviceroom", {
         params: {
           room_id:room_id
         },
@@ -52,7 +52,7 @@ const switchRoomAction = (id,status) => async (dispatch) => {
     status:status
   }
   try {
-    const { data } = await axios.put("http://localhost:4000/api/switchroom",(setData));
+    const { data } = await axios.put("https://smarthome-bu.online/api/switchroom",(setData));
     dispatch({ type: ROOM_SWITCH_SUCCESS, payload: data.data });
     // console.log(data);
   } catch (error) {

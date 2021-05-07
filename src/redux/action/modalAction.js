@@ -16,7 +16,7 @@ import {
 
 const addRoomAction = (dataRoom) => async (dispatch) => {
   try {
-    const { data } = await axios.post("http://localhost:4000/api/addRoom",(dataRoom));
+    const { data } = await axios.post("https://smarthome-bu.online/api/addRoom",(dataRoom));
     dispatch({ type: MODAL_ADD_ROOM_SUCCESS, payload: data });
     console.log('addRoom',data)
   } catch (error) {
@@ -26,7 +26,7 @@ const addRoomAction = (dataRoom) => async (dispatch) => {
 
 const addDeviceAction = (dataDevice) => async (dispatch) => {
   try {
-    const { data } = await axios.post("http://localhost:4000/api/addDevice",(dataDevice));
+    const { data } = await axios.post("https://smarthome-bu.online/api/addDevice",(dataDevice));
     dispatch({ type: MODAL_ADD_DEVICE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: MODAL_ADD_DEVICE_FALL, payload: error.message });
@@ -35,7 +35,7 @@ const addDeviceAction = (dataDevice) => async (dispatch) => {
 
 const addSensorAction = (dataSensor) => async (dispatch) => {
   try {
-    const { data } = await axios.post("http://localhost:4000/api/addSensor",(dataSensor));
+    const { data } = await axios.post("https://smarthome-bu.online/api/addSensor",(dataSensor));
     dispatch({ type: MODAL_ADD_SENSOR_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: MODAL_ADD_SENSOR_FALL, payload: error.message });
@@ -50,7 +50,7 @@ const addUserAction = (dataUser,info) => async (dispatch) => {
     homeId:info
   }
   try {
-    const { data } = await axios.post("http://localhost:4000/api/addUser",sendUser);
+    const { data } = await axios.post("https://smarthome-bu.online/api/addUser",sendUser);
     dispatch({ type: MODAL_ADD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: MODAL_ADD_USER_FALL, payload: error.message });
@@ -59,7 +59,7 @@ const addUserAction = (dataUser,info) => async (dispatch) => {
 
 const iconAction = () => async (dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:4000/api/icon");
+    const { data } = await axios.get("https://smarthome-bu.online/api/icon");
     dispatch({ type: MODAL_ICON_SUCCESS, payload: data.icon});
   } catch (error) {
     dispatch({ type: MODAL_FACE_ID_FALL, payload: error.message });

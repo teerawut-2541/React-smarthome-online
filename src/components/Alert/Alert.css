@@ -1,0 +1,34 @@
+.box-alert-Success{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #83bd2c;
+    border: none;
+}
+.box-alert-Success span{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-family: "Quicksand", sans-serif;
+}
+.box-alert-error{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #e72d2d;
+    border: none;
+}
+.box-alert-error span{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-family: "Quicksand", sans-serif;
+}

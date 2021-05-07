@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { addRoomAction } from "../../redux/action/modalAction";
+import Alert from "../Alert/Alert";
 import "./modal.css";
 const AddRoom = () => {
   const { register, handleSubmit } = useForm();
@@ -28,6 +29,8 @@ const AddRoom = () => {
   };
 
   return (
+    <div className='grid-add'>
+      <Alert statu={status} message={message}/>
     <div className="addroom-content">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="addroom">
@@ -41,7 +44,9 @@ const AddRoom = () => {
             className="input-romm"
             ref={register}
           />
-          <span className="input-romm">{pathIcon}</span>
+          <div className='box-icons-adds'>
+            <img className='box-icon-romm' src={pathIcon} alt='icon'/>
+          </div>
           <div className="btn-addroom">
             <button type="submit">SAVE</button>
           </div>
@@ -56,6 +61,7 @@ const AddRoom = () => {
           })}
         </div>
       </div>
+    </div>
     </div>
   );
 };

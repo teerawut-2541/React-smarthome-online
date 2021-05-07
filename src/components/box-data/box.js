@@ -9,7 +9,7 @@ function Box() {
   const [dataSensor, setDataSensor] = useState(null)
 
   const getData = () =>{
-    axios.get("http://localhost:4000/api/dataroom", {
+    axios.get("https://smarthome-bu.online/api/dataroom", {
         params: {
           room_id:id
         },

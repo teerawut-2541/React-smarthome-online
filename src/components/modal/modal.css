@@ -99,7 +99,10 @@
   padding-right: 10px;
   color: #fff;
 }
-
+.grid-add{
+  display: grid;
+  grid-template-columns: 1fr;
+}
 /* หน้า room */
 .addroom-content {
   display: grid;
@@ -240,3 +243,19 @@
   background: #193B68;
 }
 /* ------------ */
+.box-icons-adds{
+  width: 100%;
+  display: grid;
+  justify-items: start;
+}
+.box-icon-romm{
+  background-color: rgb(92, 91, 91);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 15px;
+}

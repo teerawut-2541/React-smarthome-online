@@ -27,7 +27,7 @@ function BoxSwitch() {
   };
 
   const getDevice = () =>{
-    axios.get("http://localhost:4000/api/deviceroom", {
+    axios.get("https://smarthome-bu.online/api/deviceroom", {
         params: {
           room_id:id
         },
