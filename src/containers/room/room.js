@@ -29,6 +29,9 @@ export default function Room() {
           <BoxData />
         </div>
       </div>  
+      <div>
+        
+      </div>
     </div>
   );
 }

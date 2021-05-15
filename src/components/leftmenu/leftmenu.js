@@ -74,7 +74,6 @@ function Leftmenu() {
                     exact
                     exact
                     to={`/room/${item.room_id}`}
-                    activeClassName="is-active"
                     className="menu-box-icon"
                   >
                     <i className="menu-icon">

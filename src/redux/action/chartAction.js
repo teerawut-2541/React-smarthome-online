@@ -37,7 +37,7 @@ const chartDataSensorAction =
     let token = JSON.parse(localStorage.getItem("token"));
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/chartDataSensor",
+        "https://smarthome-bu.online/api/chartDataSensor",
         {
           params: {
             sensor_id: selectName !== null ? selectName : 1,
@@ -77,7 +77,7 @@ const chartDataSensor2Action =
   (selectName, selectDayChart) => async (dispatch) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/chartDataSensor2",
+        "https://smarthome-bu.online/api/chartDataSensor2",
         {
           params: {
             sensor_id: selectName !== null ? selectName : 1,
@@ -112,7 +112,7 @@ const chartDataSensorOne2Action = (selectName) => async (dispatch) => {
 
 const chartPower = (homeid) => async (dispatch) => {
   try {
-    const { data } = await axios.get("http://localhost:4000/api/chartPower",{
+    const { data } = await axios.get("https://smarthome-bu.online/api/chartPower",{
       params: {
         home_id: homeid,
       },

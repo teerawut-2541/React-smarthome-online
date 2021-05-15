@@ -37,7 +37,7 @@ const deviceRoomAction = (room_id) => async (dispatch) => {
       const { data } = await axios.get("https://smarthome-bu.online/api/deviceroom", {
         params: {
           room_id:room_id
-        },
+        }, 
       });
       dispatch({ type: ROOM_DEVICE_SUCCESS, payload: data.data });
       // console.log('deviceRoomAction',data);

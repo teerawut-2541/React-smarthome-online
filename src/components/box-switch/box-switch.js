@@ -7,10 +7,15 @@ import axios from "axios"
 
 function BoxSwitch() {
   let { id } = useParams();
+
+  
   const [Device, setDevice] = useState(null)
   const [checkEff, setCheckEff] = useState(false)
   // const data = useSelector((state) => state.deviceRoom);
   // const { deviceRoom } = data;
+
+  const checkToken = useSelector((state) => state.checkToken);
+  const { userInfo } = checkToken;
 
   const dispatch = useDispatch();
   const handleClick = (device_id, status) => {
@@ -27,18 +32,22 @@ function BoxSwitch() {
   };
 
   const getDevice = () =>{
-    axios.get("https://smarthome-bu.online/api/deviceroom", {
+    axios.get("http://localhost:4000/api/deviceroom", {
         params: {
-          room_id:id
+          room_id:id,
+          home_id:userInfo.home_id
         },
       }).then((result)=>{
         setDevice(result.data.data)
       })
   }
 
+
   useEffect(() => {
-    getDevice()
-  }, [checkEff,id])
+    if(userInfo){
+      getDevice()
+    }
+  }, [checkEff,id,userInfo])
 
 
   return (
@@ -51,7 +60,7 @@ function BoxSwitch() {
                 <div
                   className="box-switch-on-off"
                   style={{
-                    background: `${boolValue ? "cornflowerblue" : "#fff"}`,
+                    background: `${boolValue ? "#193B68" : "#fff"}`,
                   }}
                   onClick={() => handleClick(item.device_id, item.status)}
                 >

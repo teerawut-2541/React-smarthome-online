@@ -60,6 +60,7 @@ const AddRoom = () => {
               return (
                 <div className='box-icons' key={key} >
                   <img
+                  className="modal-icon"
                   src={item.path_icon}
                   alt="icon"
                   onClick={() => setPathIcon(item.path_icon)}

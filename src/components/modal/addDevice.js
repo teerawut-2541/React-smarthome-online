@@ -7,6 +7,9 @@ import Alert from "../Alert/Alert";
 function AddDevice() {
   const { register, handleSubmit } = useForm();
 
+  const checkToken = useSelector((state) => state.checkToken);
+  const { userInfo } = checkToken;
+
   const stateListRoom = useSelector((state) => state.listRoom);
   const { listRoom } = stateListRoom;
 
@@ -23,6 +26,7 @@ function AddDevice() {
       key:data.keyname,
       name:data.name,
       room:data.room,
+      home_id: userInfo.home_id,
       path_icon:pathIcon,
     }
     dispatch(addDeviceAction(dataDevice));
@@ -98,6 +102,7 @@ function AddDevice() {
               return (
                 <div className='box-icons'>
                   <img
+                  className="modal-icon"
                   key={key}
                   src={item.path_icon}
                   alt="icon"

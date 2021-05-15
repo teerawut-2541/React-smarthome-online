@@ -100,6 +100,7 @@ function AddSensor() {
               return (
                 <div className='box-icons'>
                   <img
+                  className="modal-icon"
                   key={key}
                   src={item.path_icon}
                   alt="icon"
