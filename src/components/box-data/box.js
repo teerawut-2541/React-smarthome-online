@@ -22,7 +22,7 @@ function Box() {
     getData()
   }, [id])
   return (
-    <div >
+    <div className='box-data-api'>
       {dataSensor !== null
         ? dataSensor.map((item, key) => {
             return (

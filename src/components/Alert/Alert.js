@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./Alert.css";
 
 const Alert = ({ statu, message }) => {
+  const [state, setstate] = useState(message?message:null)
   const [Alerts, setAlerts] = useState(null);
   useEffect(() => {
-    setAlerts(message);
-    setTimeout(() => {
-      setAlerts(null);
-    }, 3000);
-  }, [message]);
+    if(state){
+      setAlerts(message);
+      setTimeout(() => {
+        setstate(null)
+        setAlerts(null);
+      }, 3000);
+    }
+  },[state]);
 
-  useEffect(() => {
-    setAlerts(message)
-  }, [message])
   return (
     <div>
       {Alerts && (

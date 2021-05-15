@@ -16,7 +16,7 @@ const AddRoom = () => {
   const addRoom = useSelector((state) => state.addRoom);
   const { status,message } = addRoom;
 
-  const [pathIcon, setPathIcon] = useState('Icon')
+  const [pathIcon, setPathIcon] = useState(null)
 
   const dispatch = useDispatch();
   const onSubmit = (data) => {
@@ -45,7 +45,7 @@ const AddRoom = () => {
             ref={register}
           />
           <div className='box-icons-adds'>
-            <img className='box-icon-romm' src={pathIcon} alt='icon'/>
+          {pathIcon&&  <img className='box-icon-romm' src={pathIcon} alt='icon'/>}
           </div>
           <div className="btn-addroom">
             <button type="submit">SAVE</button>
@@ -54,11 +54,21 @@ const AddRoom = () => {
       </form>
       <div className="box-icon-addroom">
         <div className="icon-addroom">
-          {icon && icon.map((item,key)=>{
-            return(
-              <img key={key} src={item.path_icon} alt='icon' onClick={()=>setPathIcon(item.path_icon)}/>
-            )
-          })}
+          <div className='icon-list'>
+          {icon &&
+            icon.map((item, key) => {
+              return (
+                <div className='box-icons'>
+                  <img
+                  key={key}
+                  src={item.path_icon}
+                  alt="icon"
+                  onClick={() => setPathIcon(item.path_icon)}
+                />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

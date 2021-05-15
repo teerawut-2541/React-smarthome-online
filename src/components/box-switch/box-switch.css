@@ -1,3 +1,8 @@
+.box-switch-content{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 .box-switch{
     border-radius: 20px;
     color: #193B68;
@@ -8,6 +13,7 @@
     height: 100px;
     display: flex;
     align-items: center;
+    margin: 10px;
 }
 .box-switch-on-off{
     width: 80px;
@@ -52,4 +58,17 @@
 }
 .switch-slide{
     list-style-type: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    .box-switch-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .box-switch-content {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
 }

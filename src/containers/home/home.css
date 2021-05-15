@@ -105,6 +105,6 @@
 
   .home-content-grid3 {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr ;
   }
 }

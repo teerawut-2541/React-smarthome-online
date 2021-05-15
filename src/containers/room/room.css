@@ -1,20 +1,14 @@
 .room-content-grid{ 
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr ;
 }
 .room-content-switch{
     margin: 15px 10px;
 }
-@media only screen and (max-width: 1100px) {
-    .room-content-grid{ 
-        display: grid;
-        grid-template-columns: 1fr 1fr ;
-    }
-  }
+.room-content{
+    width: 100%;
+    min-height: 100vh;
+    
+}
 
-  @media only screen and (max-width: 600px) {
-    .room-content-grid{ 
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-  }

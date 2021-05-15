@@ -42,7 +42,7 @@ function BoxSwitch() {
 
 
   return (
-    <div>
+    <div className='box-switch-content'> 
       {Device !== null
         ? Device.map((item, key) => {
             var boolValue = item.status.toLowerCase() === "true" ? true : false;

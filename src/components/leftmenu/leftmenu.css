@@ -1,13 +1,18 @@
 .left-menu{
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     margin: 30px 0;
     flex-direction: column;
 }
 .menu-title{
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
     color: #1479ff;
     font-weight: 700;
+    text-align: center;
 }
 .menu-ul{
     padding: 0;
@@ -69,6 +74,4 @@
 .is-text-active{
     color: #1479ff;
 }
-@media(max-width:991px) {
 
-}

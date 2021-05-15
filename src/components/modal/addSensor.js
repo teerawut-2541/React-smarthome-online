@@ -15,7 +15,7 @@ function AddSensor() {
 
   const stateIcon = useSelector((state) => state.icon);
   const { icon } = stateIcon;
-  const [pathIcon, setPathIcon] = useState("Icon");
+  const [pathIcon, setPathIcon] = useState(null);
 
   const addSensor = useSelector((state) => state.addSensor);
   const { status, message } = addSensor;
@@ -50,11 +50,19 @@ function AddSensor() {
           </div>
           <input
             type="text"
-            name="name"
-            placeholder="Name Device"
+            name="keyname"
+            placeholder="Keyname Sensor"
             className="input-romm"
             ref={register}
           />
+          <input
+            type="text"
+            name="name"
+            placeholder="Name Sensor"
+            className="input-romm"
+            ref={register}
+          />
+         
           <select className="input-select" ref={register} name="types">
             <option value="0">Types</option>
             {types.map((item, key) => {
@@ -75,7 +83,9 @@ function AddSensor() {
               );
             })}
           </select>
-          <span className="input-romm">{pathIcon}</span>
+          <div className='box-icons-adds'>
+            {pathIcon&&  <img className='box-icon-romm' src={pathIcon} alt='icon'/>}
+          </div>
           <div className="btn-addroom">
             <button type="submit">SAVE</button>
           </div>
@@ -83,17 +93,21 @@ function AddSensor() {
       </form>
       <div className="box-icon-addroom">
         <div className="icon-addroom">
+          <div className='icon-list'>
           {icon &&
             icon.map((item, key) => {
               return (
-                <img
+                <div className='box-icons'>
+                  <img
                   key={key}
                   src={item.path_icon}
                   alt="icon"
                   onClick={() => setPathIcon(item.path_icon)}
                 />
+                </div>
               );
             })}
+          </div>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { loginAction } from "../../redux/action/userAction";
 import "./account.css";
 import bg from "../../assets/bg-login.jpg";
-// import Alert from "../../components/Alert/Alert";
+import Alert from "../../components/Alert/Alert";
 
 import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
@@ -54,7 +54,7 @@ function Login() {
 
   return (
     <div className="page-account">
-            {/* <Alert statu={status} message={message}/> */}
+            <Alert statu={status} message={message}/>
       <div className="box-account">
         <div className="box-account-grid">
           <div className="box-img">

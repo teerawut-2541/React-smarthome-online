@@ -12,13 +12,13 @@ function AddDevice() {
 
   const stateIcon = useSelector((state) => state.icon);
   const { icon } = stateIcon;
-  const [pathIcon, setPathIcon] = useState("Icon");
+  const [pathIcon, setPathIcon] = useState(null);
 
   const addDevice = useSelector((state) => state.addDevice);
   const { status, message } = addDevice;
 
   const dispatch = useDispatch();
-  const onSubmit = (data) => {
+  const onSubmit = (data,e) => {
     const dataDevice = {
       name:data.name,
       types:data.types,
@@ -26,6 +26,8 @@ function AddDevice() {
       path_icon:pathIcon,
     }
     dispatch(addDeviceAction(dataDevice));
+    setPathIcon(null)
+    e.target.reset()
   }; 
 
   const types = [
@@ -46,6 +48,13 @@ function AddDevice() {
           <div className="title-addroom">
             <h1>Add Device</h1>
           </div>
+          <input
+            type="text"
+            name="keyname"
+            placeholder="Keyname Device"
+            className="input-romm"
+            ref={register}
+          />
           <input
             type="text"
             name="name"
@@ -74,7 +83,7 @@ function AddDevice() {
             })}
           </select>
           <div className='box-icons-adds'>
-            <img className='box-icon-romm' src={pathIcon} alt='icon'/>
+            {pathIcon&&  <img className='box-icon-romm' src={pathIcon} alt='icon'/>}
           </div>
           <div className="btn-addroom">
             <button type="submit">SAVE</button>
@@ -83,17 +92,21 @@ function AddDevice() {
       </form>
       <div className="box-icon-addroom">
         <div className="icon-addroom">
+          <div className='icon-list'>
           {icon &&
             icon.map((item, key) => {
               return (
-                <img
+                <div className='box-icons'>
+                  <img
                   key={key}
                   src={item.path_icon}
                   alt="icon"
                   onClick={() => setPathIcon(item.path_icon)}
                 />
+                </div>
               );
             })}
+          </div>
         </div>
       </div>
     </div>
