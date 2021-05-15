@@ -45,14 +45,15 @@ function App() {
     <div className="container">
        <ReactNotification />
       <Switch>
-        <Route path="/login" component={Login} />
+        {/* <Route path="/login" component={Login} /> */}
         <Route path="/login-faceid" component={LoginFaceID} />
         <Route path="/register" component={Register} />
         {token ? (
-          <div>
-            <Route exact path="/" component={Index} />
+      <Switch>
+      <Route exact path="/" component={Index} />
             <Route exact path="/room/:id" component={Index} />
-          </div>
+            
+            </Switch>
         ) : (
           <Route path="/login" component={Login} />
         )}

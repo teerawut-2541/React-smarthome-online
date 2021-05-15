@@ -25,21 +25,7 @@ function Login() {
   const { status, message, error } = userLogin;
 
   const submitHandler = (e) => {
-    dispatch(loginAction(email, password)).then(()=>{
-        if(status == false){
-          store.addNotification({
-            title:"Warning",
-            message:`${message}`,
-            type:"warning",
-            container:"top-center",
-            insert:"top",
-            dismiss:{
-              duration:2000,
-              showIcon:true
-            }
-          })
-        }
-    })
+    dispatch(loginAction(email, password))
   };
 
 
@@ -49,12 +35,13 @@ function Login() {
     if (status) {
       window.location.replace("/");
     }
+
   }, [status]);
 
 
   return (
     <div className="page-account">
-            <Alert statu={status} message={message}/>
+            {/* <Alert statu={status} message={message}/> */}
       <div className="box-account">
         <div className="box-account-grid">
           <div className="box-img">
@@ -66,6 +53,7 @@ function Login() {
               onSubmit={handleSubmit(submitHandler)}
             >
               <h2>Sign In</h2>
+              <span className="account-message-err">{message}</span>
               <li>
                 <input
                   placeholder="Email"

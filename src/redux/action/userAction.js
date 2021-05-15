@@ -14,9 +14,11 @@ const loginAction = (email, password) => async (dispatch) => {
       email,
       password,
     });
-    console.log(data);
+    console.log(data.status);
+    if(data.status){
+      localStorage.setItem("token", JSON.stringify(data.token));
+    }
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
-    localStorage.setItem("token", JSON.stringify(data.token));
   } catch (error) {
     dispatch({ type: USER_LOGIN_FALL, payload: error.message });
   }

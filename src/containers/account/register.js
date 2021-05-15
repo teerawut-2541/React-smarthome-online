@@ -43,7 +43,7 @@ function Register() {
               onSubmit={handleSubmit(submitHandler)}
             >
               <h2>Create Account</h2>
-              <span>{message}</span>
+              <span className="account-message-err">{message}</span>
               <li>
                 <input
                   placeholder="Username"

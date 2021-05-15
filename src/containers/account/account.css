@@ -133,6 +133,11 @@ input {
     letter-spacing: 1px;
 }
 
+.account-message-err{
+    font-size: 13px;
+    color: red;
+}
+
 @media(max-width:992px) {
     .box-account-grid {
         display: grid;

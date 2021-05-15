@@ -33,7 +33,7 @@ function Leftmenu() {
 
   const logout=()=>{
     localStorage.clear()
-    history.push("/login");
+    window.location.replace("/login");
   }
 
   return (
