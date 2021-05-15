@@ -2,8 +2,12 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable";
 import { createBrowserHistory } from "history";
-
 import "./App.css";
+
+import ReactNotification from 'react-notifications-component'
+
+
+
 
 const Login = Loadable({
   loader: () => import("./containers/account/login"),
@@ -32,10 +36,11 @@ function App() {
 
   let token = localStorage.getItem("token");
   if(!token){
-    history.push('login')
+    history.push('/login')
   }
   return (
     <div className="container">
+       <ReactNotification />
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/login-faceid" component={LoginFaceID} />

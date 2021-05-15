@@ -1,6 +1,10 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { loginReducer, registerReducer } from "./reducers/userReducers";
+import {
+  loginReducer,
+  registerReducer,
+  loginFaceIdReducer,
+} from "./reducers/userReducers";
 import {
   listRoomReducer,
   dataRoomReducer,
@@ -15,6 +19,7 @@ import {
   chartDataOneSensorReducer,
   chartDataSensor2Reducer,
   chartDataOneSensor2Reducer,
+  chartPowerReducer
 } from "./reducers/chatReducers";
 import {
   addRoomReducer,
@@ -22,7 +27,7 @@ import {
   addSensorReducer,
   addUserReducer,
   iconReducer,
-  faceIdReducer
+  faceIdReducer,
 } from "./reducers/modalReducers";
 const initialState = {};
 
@@ -40,12 +45,14 @@ const reducer = combineReducers({
   chartDataOneSensor: chartDataOneSensorReducer,
   chartDataSensor2: chartDataSensor2Reducer,
   chartDataOneSensor2: chartDataOneSensor2Reducer,
+  chartPower:chartPowerReducer,
   addRoom: addRoomReducer,
   addDevice: addDeviceReducer,
   addSensor: addSensorReducer,
   addUser: addUserReducer,
-  icon:iconReducer,
-  faceId:faceIdReducer
+  icon: iconReducer,
+  faceId: faceIdReducer,
+  loginFaceId: loginFaceIdReducer,
 });
 
 const middlewares = [thunk];

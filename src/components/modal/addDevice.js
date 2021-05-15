@@ -26,7 +26,7 @@ function AddDevice() {
       path_icon:pathIcon,
     }
     dispatch(addDeviceAction(dataDevice));
-  };
+  }; 
 
   const types = [
     { value: "TestType1" },

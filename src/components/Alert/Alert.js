@@ -9,6 +9,10 @@ const Alert = ({ statu, message }) => {
       setAlerts(null);
     }, 3000);
   }, [message]);
+
+  useEffect(() => {
+    setAlerts(message)
+  }, [message])
   return (
     <div>
       {Alerts && (

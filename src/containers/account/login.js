@@ -7,6 +7,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { loginAction } from "../../redux/action/userAction";
 import "./account.css";
 import bg from "../../assets/bg-login.jpg";
+// import Alert from "../../components/Alert/Alert";
+
+import 'react-notifications-component/dist/theme.css'
+import { store } from 'react-notifications-component';
+
 function Login() {
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
@@ -15,13 +20,29 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const submitHandler = (e) => {
-    dispatch(loginAction(email, password));
-  };
-
+  
   const userLogin = useSelector((state) => state.userLogin);
   const { status, message, error } = userLogin;
+
+  const submitHandler = (e) => {
+    dispatch(loginAction(email, password)).then(()=>{
+        if(status == false){
+          store.addNotification({
+            title:"Warning",
+            message:`${message}`,
+            type:"warning",
+            container:"top-center",
+            insert:"top",
+            dismiss:{
+              duration:2000,
+              showIcon:true
+            }
+          })
+        }
+    })
+  };
+
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,8 +51,10 @@ function Login() {
     }
   }, [status]);
 
+
   return (
     <div className="page-account">
+            {/* <Alert statu={status} message={message}/> */}
       <div className="box-account">
         <div className="box-account-grid">
           <div className="box-img">

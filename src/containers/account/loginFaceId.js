@@ -45,6 +45,15 @@ function LoginFaceId() {
     }
   }, [newFile]);
 
+  const loginFaceId = useSelector((state) => state.loginFaceId);
+  const { status, message, error } = loginFaceId;
+
+  useEffect(() => {
+    if(status){
+      window.location.replace("/");
+    }
+  }, [status])
+
   return (
     <div className="login-faceid">
         <h2>Login with FaceID</h2>
