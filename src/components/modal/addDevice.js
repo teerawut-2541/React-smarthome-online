@@ -20,8 +20,8 @@ function AddDevice() {
   const dispatch = useDispatch();
   const onSubmit = (data,e) => {
     const dataDevice = {
+      key:data.keyname,
       name:data.name,
-      types:data.types,
       room:data.room,
       path_icon:pathIcon,
     }
@@ -30,14 +30,14 @@ function AddDevice() {
     e.target.reset()
   }; 
 
-  const types = [
-    { value: "TestType1" },
-    { value: "TestType2" },
-    { value: "TestType3" },
-    { value: "TestType4" },
-  ];
+  // const types = [
+  //   { value: "TestType1" },
+  //   { value: "TestType2" },
+  //   { value: "TestType3" },
+  //   { value: "TestType4" },
+  // ];
 
-  console.log(status,message)
+  // console.log(status,message)
 
   return (
    <div className='grid-add'>
@@ -62,7 +62,7 @@ function AddDevice() {
             className="input-romm"
             ref={register}
           />
-          <select className="input-select" ref={register} name="types">
+          {/* <select className="input-select" ref={register} name="types">
             <option value="0">Type</option>
             {types.map((item, key) => {
               return (
@@ -71,10 +71,10 @@ function AddDevice() {
                 </option>
               );
             })}
-          </select>
+          </select> */}
           <select className="input-select" ref={register} name="room">
             <option value="0">Room</option>
-            {listRoom.map((item, key) => {
+            {listRoom && listRoom.map((item, key) => {
               return (
                 <option key={key} value={item.room_id}>
                   {item.room_name}

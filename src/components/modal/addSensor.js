@@ -22,14 +22,15 @@ function AddSensor() {
 
   const dispatch = useDispatch();
   const onSubmit = (data) => {
+    console.log(data)
     const dataSensor = {
+      key:data.keyname,
       name: data.name,
-      types: data.types,
       room: data.room,
       path_icon: pathIcon,
       home_id: userInfo.home_id,
     };
-    dispatch(addSensorAction(dataSensor));
+    dispatch(addSensorAction(dataSensor)); 
   };
 
   const types = [
@@ -63,7 +64,7 @@ function AddSensor() {
             ref={register}
           />
          
-          <select className="input-select" ref={register} name="types">
+          {/* <select className="input-select" ref={register} name="types">
             <option value="0">Types</option>
             {types.map((item, key) => {
               return (
@@ -72,10 +73,10 @@ function AddSensor() {
                 </option>
               );
             })}
-          </select>
+          </select> */}
           <select className="input-select" ref={register} name="room">
             <option value="0">Room</option>
-            {listRoom.map((item, key) => {
+            {listRoom && listRoom.map((item, key) => {
               return (
                 <option key={key} value={item.room_id}>
                   {item.room_name}

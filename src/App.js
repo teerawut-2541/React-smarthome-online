@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable";
 import { createBrowserHistory } from "history";
@@ -34,10 +34,13 @@ const Index = Loadable({
 function App() {
   const history = createBrowserHistory();
 
-  let token = localStorage.getItem("token");
+  // let token = localStorage.getItem("token");
+  const [token, setstate] = useState(localStorage.getItem("token")?localStorage.getItem("token"):null)
+
   if(!token){
     history.push('/login')
   }
+
   return (
     <div className="container">
        <ReactNotification />

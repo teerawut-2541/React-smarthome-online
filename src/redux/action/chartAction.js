@@ -46,7 +46,7 @@ const chartDataSensorAction =
           headers: { token: token },
         }
       );
-      console.log(data);
+      // console.log('chartDataSensorAction',data);
       dispatch({ type: CHART_DATA_SENSOR_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: CHART_DATA_SENSOR_FALL, payload: error.message });
@@ -117,7 +117,7 @@ const chartPower = (homeid) => async (dispatch) => {
         home_id: homeid,
       },
     });
-    console.log("chartPower", data);
+    // console.log("chartPower", data);
     dispatch({ type: CHART_POWER_SUCCESS, payload: data.data});
   } catch (error) {
     // dispatch({ type: CHART_POWER_FALL, payload: error.message });

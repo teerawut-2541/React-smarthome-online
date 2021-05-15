@@ -82,12 +82,12 @@ function ChartArea() {
     },
   };
 
-  return data_sensor === undefined ? (
+  return data_sensor === undefined? (
     ""
   ) : (
     <div className="chart-area">
       <span className="chart-area-title">
-        {data_sensor[0].sensor.sensor_name}
+        {data_sensor ? data_sensor[0].sensor.sensor_name : 'xxxx'}
       </span>
       <Chart options={options} series={series} type="area" height={350} />
     </div>

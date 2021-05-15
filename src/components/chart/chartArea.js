@@ -71,7 +71,7 @@ function ChartArea() {
     ""
   ) : (
     <div className="chart-area">
-      <span className='chart-area-title'>{data_sensor[0].sensor.sensor_name}</span>
+      <span className='chart-area-title'>{data_sensor && data_sensor[0].sensor.sensor_name }</span>
       <Chart options={options} series={series} type="area" height={350} />
     </div>
   );

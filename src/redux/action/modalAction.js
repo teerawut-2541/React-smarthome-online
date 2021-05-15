@@ -26,8 +26,11 @@ const addRoomAction = (dataRoom) => async (dispatch) => {
 
 const addDeviceAction = (dataDevice) => async (dispatch) => {
   try {
-    const { data } = await axios.post("https://smarthome-bu.online/api/addDevice",(dataDevice));
+    const { data } = await axios.put("http://localhost:4000/api/addDevice",(dataDevice));
+    console.log(data)
+
     dispatch({ type: MODAL_ADD_DEVICE_SUCCESS, payload: data });
+
   } catch (error) {
     dispatch({ type: MODAL_ADD_DEVICE_FALL, payload: error.message });
   }
@@ -35,7 +38,7 @@ const addDeviceAction = (dataDevice) => async (dispatch) => {
 
 const addSensorAction = (dataSensor) => async (dispatch) => {
   try {
-    const { data } = await axios.post("https://smarthome-bu.online/api/addSensor",(dataSensor));
+    const { data } = await axios.put("http://localhost:4000/api/addSensor",(dataSensor));
     dispatch({ type: MODAL_ADD_SENSOR_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: MODAL_ADD_SENSOR_FALL, payload: error.message });

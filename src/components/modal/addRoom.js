@@ -58,9 +58,8 @@ const AddRoom = () => {
           {icon &&
             icon.map((item, key) => {
               return (
-                <div className='box-icons'>
+                <div className='box-icons' key={key} >
                   <img
-                  key={key}
                   src={item.path_icon}
                   alt="icon"
                   onClick={() => setPathIcon(item.path_icon)}

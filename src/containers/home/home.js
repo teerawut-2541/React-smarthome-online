@@ -6,7 +6,7 @@ import {
   chartDataSensorOneAction,
   chartDataSensor2Action,
   chartDataSensorOne2Action,
-  chartPower
+  chartPower,
 } from "../../redux/action/chartAction";
 import "./home.css";
 import Weather from "../../components/home/weather/weather";
@@ -17,7 +17,7 @@ import Pm25 from "../../components/home/data-sensor/pm25";
 import Pm10 from "../../components/home/data-sensor/pm10";
 import ChartArea from "../../components/chart/chartArea";
 import ChartArea2 from "../../components/chart/chartArea2";
-import ChartEnergy from "../../components/chart/chartEnergy"
+import ChartEnergy from "../../components/chart/chartEnergy";
 function Home() {
   const checkToken = useSelector((state) => state.checkToken);
   const { userInfo } = checkToken;
@@ -28,8 +28,8 @@ function Home() {
   const [selectName, setSelectName] = useState(null);
   const [selectName2, setSelectName2] = useState(null);
 
-  const [selectDayChart, setSelectDayChart] = useState(null)
-  const [selectDayChart2, setSelectDayChart2] = useState(null)
+  const [selectDayChart, setSelectDayChart] = useState(null);
+  const [selectDayChart2, setSelectDayChart2] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -47,16 +47,16 @@ function Home() {
   //getDataChart1
   useEffect(() => {
     if (selectName != null || selectDayChart !== null) {
-      dispatch(chartDataSensorAction(selectName,selectDayChart));
+      dispatch(chartDataSensorAction(selectName, selectDayChart));
     }
-  }, [selectName,selectDayChart]);
+  }, [selectName, selectDayChart]);
 
   //getDataChart2
   useEffect(() => {
-    if (selectName2 != null | selectDayChart2 !== null) {
-      dispatch(chartDataSensor2Action(selectName2,selectDayChart2));
+    if ((selectName2 != null) | (selectDayChart2 !== null)) {
+      dispatch(chartDataSensor2Action(selectName2, selectDayChart2));
     }
-  }, [selectName2,selectDayChart2]);
+  }, [selectName2, selectDayChart2]);
 
   //updateDataChart1
   useEffect(() => {
@@ -95,20 +95,20 @@ function Home() {
   };
 
   const types = [
-    { value: "0" , lable:'1วันย้อนหลัง' },
-    { value: "2" , lable:'3วันย้อนหลัง'},
-    { value: "6" , lable:'7วันย้อนหลัง'},
+    { value: "0", lable: "1วันย้อนหลัง" },
+    { value: "2", lable: "3วันย้อนหลัง" },
+    { value: "6", lable: "7วันย้อนหลัง" },
   ];
 
-  // chartPower 
+  // chartPower
   useEffect(() => {
-    if(userInfo !== undefined){
+    if (userInfo !== undefined) {
       dispatch(chartPower(userInfo.home_id));
     }
   }, [userInfo]);
 
   const chartEn = useSelector((state) => state.chartPower);
-  const { value_power , name_power} = chartEn;
+  const { value_power, name_power } = chartEn;
 
   return (
     <div className="home-content">
@@ -119,25 +119,37 @@ function Home() {
         <div className="home-grid-covid">
           <Covid />
         </div>
-        <div className="home-grid-chart-energy">
-          <span>{name_power}</span>
-          <ChartEnergy value={value_power}/>
-          <span className="chart-energy-value"> {value_power ? value_power.toFixed(2):0} Watt</span>
-        </div>
+          {name_power ? (
+            <div className="home-grid-chart-energy">
+              <span>{name_power}</span>
+              <ChartEnergy value={value_power} />
+              <span className="chart-energy-value">
+                {" "}
+                {value_power ? value_power.toFixed(2) : 0} Watt
+              </span>
+            </div>
+          ) : (
+            <div className="home-grid-chart-energy">
+            <span className="home-chart-not-data">ไม่พบข้อมูล</span>
+            </div>
+          )}
       </div>
       <div className="home-content-grid3">
         <div className="home-grid-chart">
           <div className="home-chart-box-select">
-          <select onChange={(e)=>setSelectDayChart(e.target.value)} className="home-chart-select" >
-            <option value="0">เลือกวัน</option>
-            {types.map((item, key) => {
-              return (
-                <option key={key} value={item.value}>
-                  {item.lable}
-                </option>
-              );
-            })}
-          </select>
+            <select
+              onChange={(e) => setSelectDayChart(e.target.value)}
+              className="home-chart-select"
+            >
+              <option value="0">เลือกวัน</option>
+              {types.map((item, key) => {
+                return (
+                  <option key={key} value={item.value}>
+                    {item.lable}
+                  </option>
+                );
+              })}
+            </select>
             <select onChange={optionSelect1} className="home-chart-select">
               <option value="">เลือกเซ็นเซอร์</option>
               {name_sensor &&
@@ -151,7 +163,7 @@ function Home() {
             </select>
           </div>
           {selectName ? (
-            <ChartArea />
+            <ChartArea/>
           ) : (
             <span className="home-chart-not-data">
               ยังไม่พบข้อมูล กรุณาเลือกเซ็นเซอร์
@@ -160,16 +172,19 @@ function Home() {
         </div>
         <div className="home-grid-chart">
           <div className="home-chart-box-select">
-          <select onChange={(e)=>setSelectDayChart2(e.target.value)} className="home-chart-select" >
-            <option value="0">เลือกวัน</option>
-            {types.map((item, key) => {
-              return (
-                <option key={key} value={item.value}>
-                  {item.lable}
-                </option>
-              );
-            })}
-          </select>
+            <select
+              onChange={(e) => setSelectDayChart2(e.target.value)}
+              className="home-chart-select"
+            >
+              <option value="0">เลือกวัน</option>
+              {types.map((item, key) => {
+                return (
+                  <option key={key} value={item.value}>
+                    {item.lable}
+                  </option>
+                );
+              })}
+            </select>
             <select onChange={optionSelect2} className="home-chart-select">
               <option value="">เลือกเซ็นเซอร์</option>
               {name_sensor &&
