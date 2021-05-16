@@ -13,3 +13,55 @@
     font-weight: 600;
     padding-left: 15px;
 }
+.bos{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.text-samp{
+    margin-left: 20px;
+    font-weight: 700;
+}
+@media only screen and (max-width: 1100px) {
+    .bos{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 780px) {
+    .bos{
+        width: 550px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+   
+    .bos{
+        width: 100%;
+        display: grid;
+    grid-template-columns: 1fr;
+    }
+}
+@media only screen and (max-width: 415px) {
+   
+    .bos{
+        width: 100%;
+        display: grid;
+    grid-template-columns: 1fr;
+    }
+}
+@media only screen and (max-width: 376px) {
+   
+    .bos{
+        width: 100%;
+        display: grid;
+    grid-template-columns: 1fr;
+    }
+}
+@media only screen and (max-width: 321px) {
+   
+    .bos{
+        width: 100%;
+        display: grid;
+    grid-template-columns: 1fr;
+    }
+}

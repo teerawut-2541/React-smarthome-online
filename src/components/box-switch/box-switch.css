@@ -60,13 +60,13 @@
     list-style-type: none;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1100px) {
     .box-switch-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 740px) {
     .box-switch-content {
       display: grid;
       grid-template-columns: 1fr;
