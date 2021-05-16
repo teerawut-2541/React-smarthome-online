@@ -71,10 +71,10 @@ const iconAction = () => async (dispatch) => {
 const faceIdAction = (faceId,id) => async (dispatch) => {
   var formData = new FormData(); 
   formData.append('file', faceId);
-  formData.append('id', 13);
+  formData.append('id', id);
   console.log(formData)
   try {
-    const { data } = await axios.post("https://d365cb47a2e0.ngrok.io/uploader",formData);
+    const { data } = await axios.post("https://8a3c8ca40e86.ngrok.io/uploader",formData);
     dispatch({ type: MODAL_FACE_ID_SUCCESS, payload: data.icon});
     console.log(data)
   } catch (error) {

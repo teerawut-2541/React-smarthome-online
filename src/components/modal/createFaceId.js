@@ -30,7 +30,7 @@ function CreateFaceId() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (newFile) {
-      // dispatch(faceIdAction(newFile, userInfo.user_id));
+      dispatch(faceIdAction(newFile, userInfo.user_id));
     }
   }, [newFile]);
 

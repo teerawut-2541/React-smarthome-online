@@ -8,13 +8,15 @@ import "./account.css";
 function LoginFaceId() {
 
   let {token}= useParams();
-  console.log(token)
 
   const videoConstraints = {
     width: 500,
     height: 500,
     facingMode: "user",
   };
+  
+  const loginFaceId = useSelector((state) => state.loginFaceId);
+  const { status, message, error } = loginFaceId;
   
   const [file, setFile] = useState(null);
   const [newFile, setNewFile] = useState(null);
@@ -45,8 +47,8 @@ function LoginFaceId() {
     }
   }, [newFile]);
 
-  const loginFaceId = useSelector((state) => state.loginFaceId);
-  const { status, message, error } = loginFaceId;
+
+
 
   useEffect(() => {
     if(status){
@@ -57,6 +59,8 @@ function LoginFaceId() {
   return (
     <div className="login-faceid">
         <h2>Login with FaceID</h2>
+        <span>{message}</span>
+        {console.log(message)}
       <div >
         <Webcam
           audio={false}

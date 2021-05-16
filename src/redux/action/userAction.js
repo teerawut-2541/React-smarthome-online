@@ -29,7 +29,7 @@ const loginFaceIdAction = (file) => async (dispatch) => {
     formData.append('file', file);
     console.log(formData)
     try {
-      const { data } = await axios.post("https://56d96de274b0.ngrok.io/facerecog",formData);
+      const { data } = await axios.post("https://8a3c8ca40e86.ngrok.io/facerecog",formData);
       console.log(data);
       dispatch({ type: USER_LOGIN_FACEID_SUCCESS, payload: data });
       localStorage.setItem("token", JSON.stringify(data.token.token));
