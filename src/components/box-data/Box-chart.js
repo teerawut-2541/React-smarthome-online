@@ -13,7 +13,7 @@ function BoxChart() {
   const { userInfo } = checkToken;
   
   const getDataa = async() => {
-    const data = await axios.get("http://localhost:4000/api/dataroom",{params: {
+    const data = await axios.get("https://smarthome-bu.online/api/dataroom",{params: {
       room_id: id,
       home_id: userInfo.home_id,
     }},)
